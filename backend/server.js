@@ -9,15 +9,6 @@ connectDB();
 
 const app = express();
 
-const corsConfig = {
-  origin: "*",              // Allow requests from any origin
-  credentials: true,        // Allow credentials (cookies, authorization headers, etc.)
-  methods: ["GET", "POST", "PUT", "DELETE"], // Allowed HTTP methods
-};
-
-app.use(cors(corsConfig));
-
-
 // Apply CORS middleware
 app.use(cors()); // Enable CORS for all origins
 
