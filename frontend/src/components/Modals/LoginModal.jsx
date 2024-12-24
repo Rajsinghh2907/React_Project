@@ -23,14 +23,16 @@ function LoginModal() {
     }
 
     try {
+      console.log("Attempting login with:", { username, password });
       setLoading(true);
-      // Use dynamic backend URL
       const response = await axios.post(`${backendUrl}/api/auth/login`, { username, password });
+      console.log("Login success:", response.data);
 
       localStorage.setItem("token", response.data.token); // Store JWT token
       setError("");
-      navigate("/"); // Redirect to home page after login
+      navigate("/"); // Redirect to home page
     } catch (err) {
+      console.error("Login failed:", err.response?.data || err.message);
       setError(err.response ? err.response.data.error : "Something went wrong!");
     } finally {
       setLoading(false);
