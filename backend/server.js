@@ -9,12 +9,15 @@ connectDB();
 
 const app = express();
 
-// Apply CORS middleware
 app.use(cors({
-  origin: "https://task-1-one-mu.vercel.app", // Vercel frontend URL
+  origin: [
+    "https://task-1-one-mu.vercel.app",
+    "https://task-1-3dnyo5ydi-swaraj-kumars-projects-ff0e99fc.vercel.app"
+  ],
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true,
 }));
+
 
 app.use(express.json()); // For parsing JSON requests
 app.use("/api/auth", authRoutes); // Authentication routes
