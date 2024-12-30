@@ -1,6 +1,6 @@
 const express = require("express");
 const dotenv = require("dotenv");
-const cors = require("cors");
+const cors = require("cors"); // Import cors
 const connectDB = require("./config/db");
 const authRoutes = require("./routes/authRoutes");
 
@@ -9,18 +9,12 @@ connectDB();
 
 const app = express();
 
-app.use(cors({
-  origin: [
-    "https://task-1-one-mu.vercel.app",
-    "https://task-1-3dnyo5ydi-swaraj-kumars-projects-ff0e99fc.vercel.app"
-  ],
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  credentials: true,
-}));
-
+// Apply CORS middleware
+app.use(cors()); // Enable CORS for all origins
 
 app.use(express.json()); // For parsing JSON requests
 app.use("/api/auth", authRoutes); // Authentication routes
+
 
 // Root route
 app.get("/", (req, res) => {
