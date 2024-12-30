@@ -11,7 +11,7 @@ const app = express();
 
 // Apply CORS middleware
 const corsOptions = {
-  origin: ["http://localhost:5173"], // Allow requests from this origin
+  origin: ["https://task-1-sigma-ten.vercel.app"], // Allow requests from this origin
   credentials: true,
 };
 app.use(cors(corsOptions)); // Enable CORS for all origins
