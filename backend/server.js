@@ -10,12 +10,22 @@ connectDB();
 const app = express();
 
 // Apply CORS middleware
-app.use(cors()); // Enable CORS for all origins
+const corsOptions = {
+  origin: ["http://localhost:5173"], // Allow requests from this origin
+  credentials: true,
+};
+app.use(cors(corsOptions)); // Enable CORS for all origins
+
 
 app.use(express.json()); // For parsing JSON requests
 app.use("/api/auth", authRoutes); // Authentication routes
 
 const PORT = process.env.PORT || 5000;
+
+app.get('/', (req, res) => {
+  res.send('Hello, World!');
+});
+
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
