@@ -11,7 +11,6 @@ const app = express();
 
 // Apply CORS middleware
 app.use(cors()); // Enable CORS for all origins
-app.use(cors({ origin: "https://task-1-one-mu.vercel.app" }));
 
 app.use(express.json()); // For parsing JSON requests
 app.use("/api/auth", authRoutes); // Authentication routes
