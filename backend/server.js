@@ -10,7 +10,9 @@ connectDB();
 const app = express();
 
 // Apply CORS middleware
-app.use(cors()); // Enable CORS for all origins
+app.use(cors({
+  origin: 'https://task-1-pm34.onrender.com' // Allow requests from your frontend
+}));// Enable CORS for all origins
 
 app.use(express.json()); // For parsing JSON requests
 app.use("/api/auth", authRoutes); // Authentication routes
