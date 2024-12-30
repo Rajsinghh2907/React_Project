@@ -6,10 +6,6 @@ import axios from "axios";
 // Fetch backend URL from environment variables
 const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
-if (!backendUrl) {
-  console.error("Error: VITE_BACKEND_URL is not defined. Please check your .env file.");
-}
-
 function LoginModal() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");

@@ -6,10 +6,6 @@ import axios from "axios";
 // Fetch backend URL from environment variables
 const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
-if (!backendUrl) {
-  console.error("Error: VITE_BACKEND_URL is not defined. Please check your .env file.");
-}
-
 function SignupModal() {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const [username, setUsername] = useState("");
@@ -41,13 +37,12 @@ function SignupModal() {
     }
 
     try {
-      console.log("Attempting signup with:", { username, email });
       setLoading(true);
-      await axios.post(`${backendUrl}/api/auth/signup`, { username, email, password });
+      await axios.post(`${backendUrl}/api/auth/signup`, { username, email, password, confirmPassword });
       setError("");
       navigate("/sign-in");
     } catch (err) {
-      console.error("Signup failed:", err.response?.data || err.message);
+      console.log(err);
       setError(err.response ? err.response.data.error : "Something went wrong!");
     } finally {
       setLoading(false);
