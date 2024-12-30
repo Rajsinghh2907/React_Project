@@ -21,7 +21,7 @@ const signup = async (req, res) => {
       return res.status(400).json({ message: "Username or email already exists." });
     }
 
-    // Create new user
+    // Create new user (do not save confirmPassword)
     const newUser = new User({ username, email, password });
     await newUser.save();
 
