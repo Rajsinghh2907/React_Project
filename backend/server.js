@@ -15,12 +15,6 @@ app.use(cors()); // Enable CORS for all origins
 app.use(express.json()); // For parsing JSON requests
 app.use("/api/auth", authRoutes); // Authentication routes
 
-
-// Root route
-app.get("/", (req, res) => {
-  res.send("Backend is running!");
-});
-
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
