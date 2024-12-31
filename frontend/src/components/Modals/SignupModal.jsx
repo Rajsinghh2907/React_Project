@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { backendUrl } from "../constant/backapi";
+import { backendUrl } from "../../constants/backApi"; // Corrected import path
 
 // Fetch backend URL from environment variables
 const backendUrl = import.meta.env.VITE_BACKEND_URL;
