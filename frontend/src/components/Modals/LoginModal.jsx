@@ -2,7 +2,10 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { VITE_BACKEND_URL } from "../constant/backApi";
+import { backendUrl } from "../../constant/backapi";
+
+// Fetch backend URL from environment variables
+// const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 function LoginModal() {
   const [username, setUsername] = useState("");
@@ -23,11 +26,7 @@ function LoginModal() {
     try {
       console.log("Attempting login with:", { username, password });
       setLoading(true);
-      const response = await axios.post(`${VITE_BACKEND_URL}/api/auth/login`, { username, password }, {
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      });
+      const response = await axios.post(`${backendUrl}/api/auth/login`, { username, password });
       console.log("Login success:", response.data);
 
       localStorage.setItem("token", response.data.token); // Store JWT token

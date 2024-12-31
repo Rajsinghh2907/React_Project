@@ -2,7 +2,10 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { VITE_BACKEND_URL } from "../constant/backApi";
+import { backendUrl } from "../../constant/backapi";
+
+// Fetch backend URL from environment variables
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 function SignupModal() {
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
@@ -36,11 +39,7 @@ function SignupModal() {
 
     try {
       setLoading(true);
-      await axios.post(`${VITE_BACKEND_URL}/api/auth/signup`, { username, email, password, confirmPassword }, {
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      });
+      await axios.post(`${backendUrl}/api/auth/signup`, { username, email, password, confirmPassword });
       setError("");
       navigate("/sign-in");
     } catch (err) {

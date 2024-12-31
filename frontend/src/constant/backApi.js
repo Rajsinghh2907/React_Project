@@ -1,1 +1,1 @@
-export const VITE_BACKEND_URL = "https://task-1-ifuv.onrender.com"; 
+export const backendUrl = "https://task-1-ifuv.onrender.com"; 
