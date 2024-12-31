@@ -11,7 +11,7 @@ const app = express();
 
 // Apply CORS middleware
 const corsOptions = {
-  origin: ["https://task-1-sigma-ten.vercel.app"], // Allow requests from this origin
+  origin: ["https://task-1-jade-sigma.vercel.app/"], // Allow requests from this origin
   credentials: true,
 };
 app.use(cors()); // Enable CORS for all origins// Enable CORS for all origins
