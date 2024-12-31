@@ -14,7 +14,7 @@ const corsOptions = {
   origin: ["https://task-1-sigma-ten.vercel.app"], // Allow requests from this origin
   credentials: true,
 };
-app.use(cors(corsOptions)); // Enable CORS for all origins
+app.use(cors()); // Enable CORS for all origins// Enable CORS for all origins
 
 
 app.use(express.json()); // For parsing JSON requests

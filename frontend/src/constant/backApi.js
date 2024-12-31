@@ -1,1 +1,0 @@
-export const backendUrl = "https://task-1-ifuv.onrender.com"; 
